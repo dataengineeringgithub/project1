@@ -1,4 +1,2 @@
-fastapi
-pylint
-uvicorn
-phonenumbers
+flask
+requests
