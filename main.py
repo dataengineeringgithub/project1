@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 
-def zip(zip):
-    return zip
+def zip(zipc):
+    return zipc
 
-zip_code = zip(zip)
-lllllllswd
+zip_code = zip(zipc)
+
 
 
 def get_weather_results(zip_code):
