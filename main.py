@@ -2,9 +2,6 @@ from flask import Flask, render_template, request
 import requests
 
 
-def sum(a, b):
-    return a+b
-
 
 def get_weather_results(zip_code):
     api_key = "bd04540de70a58837a4af62931553235"
