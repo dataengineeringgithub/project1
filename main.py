@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 
+def zip(zip):
+    return zip
+
+zip_code = zip(zip)
+
 
 
 def get_weather_results(zip_code):
