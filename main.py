@@ -1,10 +1,6 @@
 from flask import Flask, render_template, request
 import requests
 
-def zip(zipc):
-    return zipc
-
-zip_code = zip(zipc)
 
 
 
