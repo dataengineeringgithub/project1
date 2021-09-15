@@ -25,7 +25,7 @@ def weather_dashboard():
 def render_results():
     zip_code = request.form['zipCode']
     
-    data = get_weather_results(zc(a))
+    data = get_weather_results(zip_code)
     temp = "{0:.2f}".format(data["main"]["temp"])
     feels_like = "{0:.2f}".format(data["main"]["feels_like"])
     weather = data["weather"][0]["main"]
