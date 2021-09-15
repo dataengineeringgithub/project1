@@ -2,8 +2,10 @@ from flask import Flask, render_template, request
 import requests
 
 
-def su(a,b):
-    return a+b
+def zc(a):
+    return a
+
+
 
 
 def get_weather_results(zip_code):
