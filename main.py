@@ -2,9 +2,6 @@ from flask import Flask, render_template, request
 import requests
 
 
-def zc(a):
-    return a
-
 
 
 
