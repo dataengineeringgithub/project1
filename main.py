@@ -2,8 +2,7 @@ from flask import Flask, render_template, request
 import requests
 
 
-
-
+ls(A)
 
 
 def get_weather_results(zip_code):
