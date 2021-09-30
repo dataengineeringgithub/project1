@@ -1,8 +1,22 @@
 steps:
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/mydepl', 'my-image=gcr.io/advance-anvil-324005/app:$COMMIT_SHA']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/advance-anvil-324005/app:$COMMIT_SHA', '.']
+ # Build the container image
+ - name: ‘gcr.io/cloud-builders/docker’
+   args: [‘build’, ‘-t’, ‘gcr.io/advance-anvil-324005/app:$COMMIT_SHA’, ‘.’]
+ # Push the container image to Container Registry
+ - name: ‘gcr.io/cloud-builders/docker’
+   args: [‘push’, ‘gcr.io/advance-anvil-324005/app:$COMMIT_SHA’]
+ # Deploy container image to Cloud Run
+ - name: ‘gcr.io/google.com/cloudsdktool/cloud-sdk’
+   entrypoint: gcloud
+   args:
+   - ‘run’
+   - ‘deploy’
+   - ‘app’
+   - ‘--image’
+   - ‘gcr.io/advance-anvil-324005/app:$COMMIT_SHA’
+   - ‘--region’
+   - ‘us-central1’
+   - ‘--platform’
+   - ‘managed’
+images:
+- ‘gcr.io/advance-anvil-324005/app:$COMMIT_SHA’
